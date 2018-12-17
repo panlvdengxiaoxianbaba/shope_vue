@@ -83,17 +83,9 @@
 	import hover from '../components/hover.vue';
 	import swap from '../components/warp.vue';
     export default {
-		mounted(){
+		created(){
 			this.getTypeInfo();
-			// this.getSearchInfo()
-		},
-		
-		beforeUpdate(){
-			if(this.isDown){
-			this.getTypeInfo();
-			this.isDown=false; 
-			// this.getSearchInfo();
-			}
+			this.getSearchInfo()
 		},
 		methods:{
 			getSearchInfo(){
@@ -102,19 +94,20 @@
 				if(searchone!=''){
 					this.axios.get(url).then(result=>{
 					this.searchContent=result.data.result;
-					// if(this.info.length==0)
-					// {this.info=this.searchContent}
-					//console.log(this.searchContent)
+					 if(this.info.length==0)
+					 {this.info=this.searchContent}
+					 //console.log(this.searchContent)
 				})
 				}
 			},
 			getTypeInfo(){
+				
 				var typeid=this.$route.query.typeid;
+				//console.log(typeid)
 				this.$http.get('products?typeid='+typeid).then(result=>{
 					//console.log(result);
 					this.info=result.body;
-					var okchange=this.$route.query.okchange
-					console.log(okchange)
+					
 					//console.log(this.isDown)
 					//console.log(this.info)
 				})
@@ -126,7 +119,6 @@
 				id:this.$route.query.typeid,
 				type:this.$route.query.typename,
 				searchContent:[],
-				isDown:false
 			}
 		},
 		components:{

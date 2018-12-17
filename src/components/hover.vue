@@ -5,7 +5,7 @@
 						   <ul>
 						  	   <h3>商品导航</h3>
 								 <li><a href="index.html">回到主页</a></li>
-							      <li v-for='p of type' :key='p.id'><router-link :to="'/products?typeid='+p.id" @click='ischange'>{{p.name}}</router-link></li>
+							      <li v-for='p of type' :key='p.id' ><router-link :to="{path:'/supplierAllBack',query:{typeid:p.id,typename:p.name}}" >{{p.name}}</router-link></li>
 						  	 </ul>
 						</div>		
 						<div class="buters-guide">
@@ -38,16 +38,13 @@
 <script>
     export default {
         created(){
-		
+			
 			this.getType()
 		},
 		mounted() {
 			window.addEventListener('scroll',this.handleScorll)
 		},
 		methods:{
-			ischange(){
-				this.$router.push({params:{okchange:this.okchange}})
-			},
 			handleScorll(){
 				var box=document.getElementById('w1');
 				

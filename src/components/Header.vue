@@ -108,7 +108,7 @@
 	methods:{
 			searchif(){
 				if(this.searchone!=''){
-					this.$router.push({path:'Products',query:{searchone:this.searchone}})
+					this.$router.push({path:'supplierAllBack',query:{searchone:this.searchone}})
 				}
 				
 				

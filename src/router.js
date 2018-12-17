@@ -9,6 +9,7 @@ import NotFound from './views/NotFound'
 import Reg from './views/Reg'
 import User from './views/User'
 import Cart from './views/Cart'
+import supplierAllBack from './views/supplierAllBack'
 //ES6
 
 Vue.use(Router)
@@ -21,6 +22,7 @@ export default new Router({
         { path:"index",component:Index},
         { path:"details", component: Details },
         { path:"products", component: Products},
+        {path:'supplierAllBack',component:supplierAllBack}
     ]},
     { path: '/login', component: Login ,children:[
       {path:'/user',component:User}, 
