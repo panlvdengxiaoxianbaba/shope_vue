@@ -21,7 +21,7 @@
 							  </span>
 									<span>查找商品</span>
 									<form>
-										<input type="text" value="" v-model='searchone'><input type="button" @click='searchif'>
+										<input type="text" value="" v-model='searchone' @keyup='getKey($event)'><input type="button" @click='searchif' >
 									</form>
 					     		<div class="clear"></div>
 					     	</div>
@@ -102,13 +102,19 @@
 			}
 		},
 	created(){
-		
-			this.getType()
+			this.getType();
+			
 		},
 	methods:{
+			getKey(ev){
+				if(ev.keyCode==13)
+				this.searchif()
+				
+			},
 			searchif(){
 				if(this.searchone!=''){
 					this.$router.push({path:'supplierAllBack',query:{searchone:this.searchone}})
+					this.searchone=""
 				}
 				
 				

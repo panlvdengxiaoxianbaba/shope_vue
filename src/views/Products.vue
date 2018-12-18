@@ -96,7 +96,7 @@
 					this.searchContent=result.data.result;
 					 if(this.info.length==0)
 					 {this.info=this.searchContent}
-					 console.log(this.searchone)
+					// console.log(this.searchone)
 					 //console.log(this.searchContent)
 				})
 				}
