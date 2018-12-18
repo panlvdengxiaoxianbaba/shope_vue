@@ -4,7 +4,7 @@
     	    		<div class="categories">
 						   <ul>
 						  	   <h3>商品导航</h3>
-								 <li><a href="index.html">回到主页</a></li>
+								 <li><router-link to="/Index">回到主页</router-link></li>
 							      <li v-for='p of type' :key='p.id' ><router-link :to="{path:'/supplierAllBack',query:{typeid:p.id,typename:p.name}}" >{{p.name}}</router-link></li>
 						  	 </ul>
 						</div>		
