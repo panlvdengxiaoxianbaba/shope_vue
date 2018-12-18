@@ -4,8 +4,8 @@
 		
 		<ul class="back-links" key='type'>
 			<li><router-link to='/Index'>主页</router-link> >></li>
-			<li v-if='typetrue'><router-link :to="'/products?typeid='+id+'&typename='+type" >{{type}}</router-link> >></li>
-			
+			<li v-if='this.type!="undefined"'><router-link :to="'/products?typeid='+id+'&typename='+type" >{{type}}</router-link> >></li>
+			<li v-else><router-link :to="{path:'supplierAllBack',query:{searchone:this.searchone}}" >查询结果</router-link> >></li>
 			<li>{{details.lname}}</li>
 			<div class="clear"> </div>
 		</ul>
@@ -179,7 +179,7 @@
 		},
 		data(){
 			return {
-				typetrue:true,
+				searchone:this.$route.query.searchone,
 				id:this.$route.query.typeid,
 				type:this.$route.query.typename,
 				count:1,
@@ -261,8 +261,7 @@
 				this.$http.get('details?id='+id).then(result=>{
 				this.details=result.body[0];
 				this.bai=this.lgDivStyle['background-image']=this.details.mdpic;
-				console.log(this.type==undefined)
-				console.log(this.type)
+				console.log(this.searchone)
 				})
 			},
 			getPic(){

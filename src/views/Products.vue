@@ -36,7 +36,7 @@
 										<p><span class="rupees">￥{{p.price}}</span></p>
 									</div>
 											<div class="add-cart">								
-												<h4><router-link :to='"/details?id="+p.id+"&typename="+type+"&typeid="+id'>查看详情</router-link></h4>
+												<h4><router-link :to='"/details?id="+p.id+"&typename="+type+"&typeid="+id+"&searchone="+searchone'>查看详情</router-link></h4>
 											</div>
 										<div class="clear"></div>
 								</div>
@@ -96,6 +96,7 @@
 					this.searchContent=result.data.result;
 					 if(this.info.length==0)
 					 {this.info=this.searchContent}
+					 console.log(this.searchone)
 					 //console.log(this.searchContent)
 				})
 				}
@@ -119,6 +120,7 @@
 				id:this.$route.query.typeid,
 				type:this.$route.query.typename,
 				searchContent:[],
+				searchone:this.$route.query.searchone
 			}
 		},
 		components:{

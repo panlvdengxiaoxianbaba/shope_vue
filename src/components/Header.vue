@@ -7,7 +7,7 @@
 						<a href="index.html"><img src="images/images/back1.png" alt="" /></a>
 					</div>
 						<div class="header_top_right">
-							<div class="search_box">
+							<div class="search_box" key='login'>
 							  <span v-if='!this.$store.state.islogin'>	
 									<span class='user'><router-link to="/user">登录</router-link></span>
 									<span>|</span>
